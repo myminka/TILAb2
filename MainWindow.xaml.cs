@@ -24,5 +24,10 @@ namespace TILAb2
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var dict = Model.FindOccuranses("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        }
     }
 }
