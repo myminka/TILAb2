@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TILAb2"
         mc:Ignorable="d"
-        Title="MainWindow" ResizeMode="CanResize" Topmost="True" Width="400" Height="399" HorizontalAlignment="Center" VerticalAlignment="Center" WindowState="Normal" WindowStyle="ThreeDBorderWindow" Icon="/application.png">
+        Title="MainWindow" ResizeMode="CanResize" Topmost="True" Height="1080" HorizontalAlignment="Center" VerticalAlignment="Center" WindowState="Maximized" WindowStyle="SingleBorderWindow" Icon="/application.png" Width="1920">
     <Grid>
-        <Button Content="fi&#xD;&#xA;" HorizontalAlignment="Left" Height="87" Margin="119,192,0,0" VerticalAlignment="Top" Width="198" Click="Button_Click" RenderTransformOrigin="-0.017,-2.599"/>
+        <Button Content="fi&#xD;&#xA;" HorizontalAlignment="Left" Height="87" Margin="126,668,0,0" VerticalAlignment="Top" Width="198" Click="Button_Click" RenderTransformOrigin="-0.017,-2.599"/>
+
+        <ScrollViewer HorizontalAlignment="Left" Height="350" Margin="50,125,0,0" VerticalAlignment="Top" Width="300">
+            <TextBlock Name="SourceText" FontSize="26" TextWrapping="Wrap"/>
+        </ScrollViewer>
+
+        <ScrollViewer HorizontalAlignment="Left" Height="350" Margin="400,125,0,0" VerticalAlignment="Top" Width="300">
+            <TextBlock Name="EncText" FontSize="26" TextWrapping="Wrap"/>
+        </ScrollViewer>
+
+        <ScrollViewer HorizontalAlignment="Left" Height="350" Margin="760,125,0,0" VerticalAlignment="Top" Width="300">
+            <TextBlock Name="Keys" FontSize="26"/>
+        </ScrollViewer>
+
+        <ScrollViewer HorizontalAlignment="Left" Height="350" Margin="1130,125,0,0" VerticalAlignment="Top" Width="300">
+            <TextBlock Name="KeysDecrypt" FontSize="26"/>
+        </ScrollViewer>
+
+        <TextBlock HorizontalAlignment="Left" Height="42" Margin="100,50,0,0" Text="Source text" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" FontSize="36" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Height="46" Margin="484,50,0,0" Text="Encrypt text" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Height="48" Margin="802,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" FontSize="36"><Run Text="Keys source"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="53" Margin="1174,67,0,0" Text="Keys encrypt" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" FontSize="36"/>
+
     </Grid>
 </Window>

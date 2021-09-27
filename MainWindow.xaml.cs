@@ -27,7 +27,30 @@ namespace TILAb2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var dict = Model.FindOccuranses("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+            string str = Model.ReadFromFile().ToUpper();
+            var dict1 = Model.FindOccuranses(str);
+
+            SourceText.Text = str;
+            
+            if (dict1 is null)
+            {
+                Keys.Text = "String is empty";
+                return;
+            }
+
+            foreach (var elem in dict1)
+            {
+                Keys.Text += $"Key : {elem.Key}\t Value : {elem.Value}\n";
+            }
+
+            string encrypt = Model.Encrypt(1, str).ToString();
+            var dict2 = Model.FindOccuranses(encrypt);
+
+            EncText.Text = encrypt;
+            foreach (var elem in dict2)
+            {
+                KeysDecrypt.Text += $"Key : {elem.Key}\t Value : {elem.Value}\n";
+            }
         }
     }
 }
