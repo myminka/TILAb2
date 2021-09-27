@@ -38,7 +38,9 @@ namespace TILAb2
                 return;
             }
 
-            foreach (var elem in dict1)
+            var d1 = dict1.OrderBy(e => e.Key);
+
+            foreach (var elem in d1)
             {
                 Keys.Text += $"Key : {elem.Key}\t Value : {elem.Value}\n";
             }
@@ -46,8 +48,9 @@ namespace TILAb2
             string encrypt = Model.Encrypt(1, str).ToString();
             var dict2 = Model.FindOccuranses(encrypt);
 
+            var d2 = dict2.OrderBy(e => e.Key);
             EncText.Text = encrypt;
-            foreach (var elem in dict2)
+            foreach (var elem in d2)
             {
                 KeysDecrypt.Text += $"Key : {elem.Key}\t Value : {elem.Value}\n";
             }
