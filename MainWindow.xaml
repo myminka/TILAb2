@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TILAb2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" ResizeMode="NoResize" Topmost="True" Width="1920" Height="1080" HorizontalAlignment="Center" VerticalAlignment="Center" WindowState="Maximized" WindowStyle="SingleBorderWindow" Icon="/application.png">
     <Grid>
 
     </Grid>

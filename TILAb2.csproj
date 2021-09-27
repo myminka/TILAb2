@@ -6,4 +6,16 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="application.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="application.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Source\" />
+  </ItemGroup>
+
 </Project>
