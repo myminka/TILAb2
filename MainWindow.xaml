@@ -6,24 +6,24 @@
         xmlns:local="clr-namespace:TILAb2"
         xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="TILAb2.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" ResizeMode="CanResize" Topmost="True" Height="1080" HorizontalAlignment="Center" VerticalAlignment="Center" WindowState="Maximized" WindowStyle="SingleBorderWindow" Icon="/application.png" Width="1920" SizeToContent="Manual" WindowStartupLocation="CenterOwner">
+        Title="MainWindow" ResizeMode="CanResize" Height="1080" HorizontalAlignment="Center" VerticalAlignment="Center" WindowState="Normal" WindowStyle="SingleBorderWindow" Icon="/application.png" Width="1920" SizeToContent="Manual" WindowStartupLocation="CenterOwner">
     <Grid>
         <Button Content="Start" HorizontalAlignment="Left" Height="100" Margin="70,659,0,0" VerticalAlignment="Top" Width="300" Click="Button_Click" RenderTransformOrigin="-0.017,-2.599" FontSize="36"/>
 
         <ScrollViewer HorizontalAlignment="Left" Height="350" Margin="75,126,0,0" VerticalAlignment="Top" Width="300">
-            <TextBlock x:Name="SourceText" FontSize="26" TextWrapping="Wrap" Width="280"/>
+            <TextBlock x:Name="EncriptText" FontSize="26" TextWrapping="Wrap" Width="280"/>
         </ScrollViewer>
 
         <ScrollViewer HorizontalAlignment="Left" Height="350" Margin="400,125,0,0" VerticalAlignment="Top" Width="300">
-            <TextBlock x:Name="EncText" FontSize="26" TextWrapping="Wrap" Width="280"/>
+            <TextBlock x:Name="KeysEncrypt" FontSize="26" TextWrapping="Wrap" Width="280"/>
         </ScrollViewer>
 
         <ScrollViewer HorizontalAlignment="Left" Height="350" Margin="760,125,0,0" VerticalAlignment="Top" Width="300">
-            <TextBlock x:Name="Keys" FontSize="26" Width="300"/>
+            <TextBlock x:Name="LetterFrequency" FontSize="26" Width="300"/>
         </ScrollViewer>
 
         <ScrollViewer HorizontalAlignment="Left" Height="350" Margin="1130,125,0,0" VerticalAlignment="Top" Width="300">
-            <TextBlock x:Name="KeysDecrypt" FontSize="26" Width="300"/>
+            <TextBlock x:Name="SourceText" FontSize="26" Width="300" TextWrapping="Wrap"/>
         </ScrollViewer>
 
         <TextBlock HorizontalAlignment="Left" Height="70" Margin="95,31,0,0" Text="Encrypt text" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="36" TextAlignment="Center"/>
@@ -31,16 +31,17 @@
         <TextBlock HorizontalAlignment="Left" Height="100" Margin="797,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" FontSize="36" Text="Letter frequency" TextAlignment="Center"/>
         <TextBlock HorizontalAlignment="Left" Height="70" Margin="1165,22,0,0" Text="Default Text" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="36" TextAlignment="Center"/>
 
-        <Themes:ButtonChrome/>
-        <Button Content="Replace character" HorizontalAlignment="Left" Height="100" Margin="438,659,0,0" VerticalAlignment="Top" Width="300" FontSize="36"/>
-        <Button Content="Show default text" HorizontalAlignment="Left" Height="100" Margin="797,659,0,0" VerticalAlignment="Top" Width="300" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Left" Height="50" Margin="70,497,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="630" FontSize="36" Text="Change the character in the ciphertext "/>
-        <TextBlock HorizontalAlignment="Left" Height="50" Margin="70,572,0,0" Text="from" TextWrapping="Wrap" VerticalAlignment="Top" Width="103" FontSize="36"/>
-        <TextBox HorizontalAlignment="Left" Height="50" Margin="190,572,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="36" RenderTransformOrigin="0.486,0.481" Text=""/>
-        <TextBlock HorizontalAlignment="Left" Height="50" Margin="295,572,0,0" Text="to" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" FontSize="36"/>
-        <TextBox HorizontalAlignment="Left" Height="50" Margin="359,572,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="36"/>
+        <Button Content="Replace character" HorizontalAlignment="Left" Height="100" Margin="438,659,0,0" VerticalAlignment="Top" Width="300" FontSize="36" Click="Button_Click_1"/>
+        <Button Content="Show default text" HorizontalAlignment="Left" Height="100" Margin="797,659,0,0" VerticalAlignment="Top" Width="300" FontSize="36" Click="Button_Click_2"/>
+        <TextBlock HorizontalAlignment="Left" Height="50" Margin="404,499,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="359" FontSize="36" Text="Change character "/>
+        <TextBlock HorizontalAlignment="Left" Height="50" Margin="404,574,0,0" Text="from" TextWrapping="Wrap" VerticalAlignment="Top" Width="103" FontSize="36"/>
+        <TextBox Name="FromChar" HorizontalAlignment="Left" Height="50" Margin="524,574,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="36" RenderTransformOrigin="0.486,0.481" Text="a"/>
+        <TextBlock HorizontalAlignment="Left" Height="50" Margin="629,574,0,0" Text="to" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" FontSize="36"/>
+        <TextBox Name="ToChar" HorizontalAlignment="Left" Height="50" Margin="693,574,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontSize="36" Text="b"/>
         <TextBlock HorizontalAlignment="Left" Height="50" Margin="797,497,0,0" Text="Result of operation:" TextWrapping="Wrap" VerticalAlignment="Top" Width="321" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Left" Height="154" Margin="1123,497,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307" FontSize="36" Text="Succsesss"/>
+        <TextBlock Name="Result" HorizontalAlignment="Left" Height="154" Margin="1123,497,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="333" FontSize="36" Text="Succsesss"/>
+        <TextBlock HorizontalAlignment="Left" Height="62" Margin="75,511,0,0" Text="Set Key =" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" FontSize="36"/>
+        <TextBox Name="Key" HorizontalAlignment="Left" Height="63" Margin="241,511,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Text="1" FontSize="36"/>
 
     </Grid>
 </Window>

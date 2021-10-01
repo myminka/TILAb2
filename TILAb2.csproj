@@ -11,11 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="application.png" />
+    <Folder Include="Source\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Source\" />
+    <Resource Include="application.png" />
   </ItemGroup>
 
 </Project>

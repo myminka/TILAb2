@@ -9,6 +9,8 @@ namespace TILAb2
     class Model
     {
         private static readonly string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        public static readonly string str = ReadFromFile().ToUpper();
+        public static string encStr = String.Empty;
 
         public static Dictionary<char, int> FindOccuranses(string str)
         {
@@ -24,7 +26,7 @@ namespace TILAb2
             {
                 if (char.IsLetter(elem))
                 {
-                    if (!dict.ContainsKey(elem))
+                    if (!dict.ContainsKey(elem) && alphabet.Contains(elem))
                     {
                         dict.Add(elem, 1);
                     }
@@ -38,7 +40,7 @@ namespace TILAb2
             return dict;
         }
 
-        public static StringBuilder Encrypt(int key, string str)
+        public static string Encrypt(int key)
         {
             if (str is null)
             {
@@ -55,15 +57,16 @@ namespace TILAb2
                 key = key % 26;
             }
 
-            str = str.ToUpper();
-            StringBuilder encStr = new StringBuilder();
+            StringBuilder enc = new StringBuilder();
 
             foreach (var elem in str)
             {
-                encStr.Append(char.IsLetter(elem) ? alphabet[(elem % 65 + key) % 26] : elem);
+                enc.Append(char.IsLetter(elem) ? alphabet[(elem % 65 + key) % 26] : elem);
             }
 
-            return encStr;
+            encStr = enc.ToString();
+
+            return enc.ToString();
         }
 
         public static string ReadFromFile()
@@ -83,6 +86,25 @@ namespace TILAb2
             }
 
             return result;
+        }
+
+        public static int FindCount(string str)
+        {
+            if (str is null)
+            {
+                return 0;
+            }
+
+            int count = 0;
+            foreach (var elem in str)
+            {
+                if (alphabet.Contains(elem))
+                {
+                    count++;
+                }
+            }
+
+            return count;
         }
     }
 }
