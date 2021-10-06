@@ -73,7 +73,32 @@ namespace TILAb2
                 Result.Text = ex.Message;
                 return;
             }
-            Model.encStr = Model.encStr.Replace(a, b);
+
+            int length = Model.encStr.Length;
+            StringBuilder str = new StringBuilder(Model.encStr);
+            for (int i = 0; i < length; ++i)
+            {
+                if (str[i] == a)
+                {
+                    str[i] = b;
+                }
+                else if (str[i] == b)
+                {
+                    str[i] = a;
+                }                
+            }
+
+            var d = Model.FindOccuranses(str.ToString());
+            var d1 = d.OrderBy(e => e.Key);
+            var count = Model.FindCount(str.ToString());
+
+            KeysEncrypt.Text = "";
+            foreach (var elem in d1)
+            {
+                KeysEncrypt.Text += $"Key : {elem.Key}\t Value : {((double)elem.Value / (double)count).ToString("P")}\n";
+            }
+
+            Model.encStr = str.ToString();
 
             EncriptText.Text = Model.encStr;
             Result.Text = $"Succsessful changed from {a} to {b}";
